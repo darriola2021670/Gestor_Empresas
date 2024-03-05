@@ -12,8 +12,8 @@ const UserSchema = mongoose.Schema({
     },
     password: {
         type: String,
-        required: [true, "La contrase;a es obligatoria"],
-    },
+        required: [true, "La contraseña es obligatoria"],
+      },
     phone: {
         type: String,
         minLength: 8,
