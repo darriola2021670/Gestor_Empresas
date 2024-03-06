@@ -13,6 +13,10 @@ const ProductoSchema = mongoose.Schema({
         type: String,
         required: [true, "Se necesita saber el stock"]
     },
+    categoria: {
+        type: String,
+        require: true
+    },
     estado: {
         type: Boolean,
         default: true,

@@ -2,25 +2,30 @@ import { response, request } from "express";
 import Producto from './productos.model.js';
 
 export const getProductos = async (req = request, res = response) => {
-    const { limite, desde } = req.query;
-    const query = { estado: true };
-
-    const [total, productos] = await Promise.all([
-        Producto.countDocuments(query),
-        Producto.find(query)
+    try {
+        const { limite, desde, categoria } = req.query;
+        let query = {};
+   
+        if (categoria) {
+            query.categoria = categoria;
+        }
+   
+        const productos = await Producto.find(query)
             .skip(Number(desde))
-            .limit(Number(limite)),
-    ]);
-
-    res.status(200).json({
-        total,
-        productos,
-    });
-}
+            .limit(Number(limite))
+   
+        res.status(200).json({
+            total: productos.length,
+            productos
+        });
+    } catch (error) {
+        res.status(500).json({ mensaje: 'Error al obtener las empresas', error: error.message });
+    }
+};
 
 export const createProducto = async (req, res) => {
-    const { nombre, descripcion, stock } = req.body;
-    const producto = new Producto ({ nombre, descripcion, stock });
+    const { nombre, descripcion, stock, categoria } = req.body;
+    const producto = new Producto ({ nombre, descripcion, stock, categoria });
 
     await producto.save();
 
