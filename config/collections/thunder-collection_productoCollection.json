@@ -1,0 +1,89 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "productoCollection",
+    "dateExported": "2024-03-06T07:13:00.320Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "f7790b70-78ba-442d-bffc-fbe71554ff4d",
+            "colId": "736e4fcb-a071-40bc-9584-3c6d2ea04cd0",
+            "containerId": "",
+            "name": "addProducto",
+            "url": "http://localhost:8080/empresa/v1/producto",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-03-06T07:03:02.044Z",
+            "modified": "2024-03-06T07:12:35.462Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\":\"pollo\",\n  \"descripcion\":\"polllossss\",\n  \"stock\":\"10\"\n}",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "5afccef1-bfda-411f-8609-f5189f392763",
+            "colId": "736e4fcb-a071-40bc-9584-3c6d2ea04cd0",
+            "containerId": "",
+            "name": "getProductos",
+            "url": "http://localhost:8080/empresa/v1/producto",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-03-06T07:03:10.075Z",
+            "modified": "2024-03-06T07:11:15.569Z",
+            "headers": [],
+            "params": [],
+            "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "ab8d22b0-1188-4e8e-938b-a41ac1e9c6da",
+            "colId": "736e4fcb-a071-40bc-9584-3c6d2ea04cd0",
+            "containerId": "",
+            "name": "getProductoById",
+            "url": "http://localhost:8080/empresa/v1/producto/65e816fb6e866cccd0b8b631",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-03-06T07:03:37.042Z",
+            "modified": "2024-03-06T07:11:30.353Z",
+            "headers": [],
+            "params": [],
+            "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "1c7f98b6-6f4c-4a75-a613-84d6856d2c95",
+            "colId": "736e4fcb-a071-40bc-9584-3c6d2ea04cd0",
+            "containerId": "",
+            "name": "updateProducto",
+            "url": "http://localhost:8080/empresa/v1/producto/65e816fb6e866cccd0b8b631",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-03-06T07:03:45.466Z",
+            "modified": "2024-03-06T07:12:40.008Z",
+            "headers": [],
+            "params": [],
+            "reqType": "put",
+            "tests": []
+        },
+        {
+            "_id": "c738dda6-4a8e-4c7d-81a0-b2ee5e081dbc",
+            "colId": "736e4fcb-a071-40bc-9584-3c6d2ea04cd0",
+            "containerId": "",
+            "name": "deleteProducto",
+            "url": "http://localhost:8080/empresa/v1/producto/65e816fb6e866cccd0b8b631",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2024-03-06T07:03:51.898Z",
+            "modified": "2024-03-06T07:12:44.286Z",
+            "headers": [],
+            "params": [],
+            "reqType": "del",
+            "tests": []
+        }
+    ]
+}

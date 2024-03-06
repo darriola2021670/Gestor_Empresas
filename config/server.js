@@ -15,7 +15,7 @@ class Server {
         this.port = process.env.PORT;
         this.usuarioPath = '/empresa/v1/users';
         this.authPath = '/empresa/v1/auth';
-        this.productoPath = '/empresa/v1/auth';
+        this.productoPath = '/empresa/v1/producto';
         this.middlewares();  
         this.conectarDB();  
         this.routes();  

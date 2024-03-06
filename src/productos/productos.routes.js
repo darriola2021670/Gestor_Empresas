@@ -10,7 +10,7 @@ import {
 import{
     existenteProductoById,
 } from "../helpers/db-validators.js";
-import { validarCampos } from "../middlewares/validar-campos";
+import { validarCampos } from "../middlewares/validar-campos.js";
 
 const router = Router();
 

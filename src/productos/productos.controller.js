@@ -1,5 +1,5 @@
 import { response, request } from "express";
-import Producto from './productos.model';
+import Producto from './productos.model.js';
 
 export const getProductos = async (req = request, res = response) => {
     const { limite, desde } = req.query;
