@@ -1,0 +1,29 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "authCollection",
+    "dateExported": "2024-03-06T06:12:32.986Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "2a6e0e46-dd37-4fab-bc8c-991b031cc97d",
+            "colId": "d95beb9c-26f0-4dce-8299-fc2480e73b1a",
+            "containerId": "",
+            "name": "login",
+            "url": "http://localhost:8080/empresa/v1/auth/login",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-03T19:50:02.732Z",
+            "modified": "2024-03-06T06:09:44.049Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"correo\":\"test1@kinal.edu.gt\",\n  \"password\":\"123456\"\n}",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        }
+    ]
+}
