@@ -45,7 +45,7 @@ export const getUserById = async (req, res) => {
 
 export const updateUser = async (req, res = response) => {
     const { id } = req.params;
-    const { _id, password, google, correo, ...rest } = req.body;
+    const { _id, password,  correo, ...rest } = req.body;
 
     if (password) {
         const salt = bcryptjs.genSaltSync(); 

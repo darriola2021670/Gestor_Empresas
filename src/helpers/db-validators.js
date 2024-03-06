@@ -17,6 +17,14 @@ export const existenteEmail = async (correo = '') => {
     }
 }
 
+export const existenteProductoById = async (id = '') => {
+    const existenteProducto = await Producto.findById( id );
+
+    if (!existenteProducto) {
+        throw new Error(`El ID ${id} No existe`);
+    }
+}
+
 export const existeUsuarioById = async (id = '') => {
     const existeUsuario = await User.findById(id);
 
