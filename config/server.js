@@ -14,7 +14,6 @@ class Server {
         this.port = process.env.PORT;
         this.usuarioPath = '/empresa/v1/users';
         this.authPath = '/empresa/v1/auth';
-
         this.middlewares();  
         this.conectarDB();  
         this.routes();  
@@ -35,7 +34,6 @@ class Server {
     routes() {
         this.app.use(this.usuarioPath, userRoutes);
         this.app.use(this.authPath, authRoutes);
-
     }
 
     listen() {

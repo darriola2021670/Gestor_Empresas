@@ -1,4 +1,4 @@
-import {response, request} from "express";
+import { response, request } from "express";
 import bcryptjs from 'bcryptjs';
 import User from './user.model.js';
 
@@ -23,7 +23,8 @@ export const createUser = async (req, res) => {
     const { nombre, correo, password, role, phone } = req.body;
     const user = new User({ nombre, correo, password, role, phone });
 
-    const salt = bcryptjs.genSaltSync();
+
+    const salt = bcryptjs.genSaltSync(); 
     user.password = bcryptjs.hashSync(password, salt);
 
     await user.save();
@@ -44,19 +45,19 @@ export const getUserById = async (req, res) => {
 
 export const updateUser = async (req, res = response) => {
     const { id } = req.params;
-    const { _id, password, correo, ...rest } = req.body;
+    const { _id, password, google, correo, ...rest } = req.body;
 
     if (password) {
-        const salt = bcryptjs.genSaltSync();
+        const salt = bcryptjs.genSaltSync(); 
         rest.password = bcryptjs.hashSync(password, salt);
     }
 
-    await User.findByIdAndUpdate(id,rest);
+    await User.findByIdAndUpdate(id, rest);
 
     const user = await User.findOne({ _id: id });
 
     res.status(200).json({
-        msg: 'Usuario actualizado',
+        msg: 'Usuario Actualizado',
         user,
     });
 }
@@ -64,7 +65,7 @@ export const updateUser = async (req, res = response) => {
 export const deleteUser = async (req, res) => {
     const { id } = req.params;
 
-    const user = await User.findByIdAndUpdate(id,{ state: false});
+    const user = await User.findByIdAndUpdate(id, { estado: false });
 
     const authenticatedUser = req.user;
 
