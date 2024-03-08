@@ -1,6 +1,6 @@
 import { response, request } from "express";
 import Producto from './productos.model.js';
-import Categoria from '../categorias/categorias.model.js'
+import Categoria from '../categorias/categorias.model.js';
 
 export const getProductos = async (req = request, res = response) => {
     try {
@@ -56,7 +56,7 @@ export const createProducto = async (req, res) => {
             nombre,
             descripcion,
             stock,
-            categoria: categoriaEncontrada._id, 
+            categoria: categoriaEncontrada._id,
         });
 
         await producto.save();
@@ -101,4 +101,28 @@ export const deleteProducto = async (req, res) => {
     const authenticatedProducto = req.user;
 
     res.status(200).json({ msg: 'Producto sacado de stock', producto, authenticatedProducto });
+};
+
+import Factura from '../factura/factura.model.js';
+
+export const generarFactura = async (req, res) => {
+    const { productos, usuario, total } = req.body;
+
+    try {
+
+        const factura = new Factura({
+            productos,
+            usuario,
+            total,
+        });
+
+        await factura.save();
+
+        res.status(200).json({
+            factura,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error interno del servidor' });
+    }
 };

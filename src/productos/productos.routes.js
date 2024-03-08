@@ -1,13 +1,14 @@
 import { Router } from "express";
-import { check } from "express-validator";
+import { check } from 'express-validator';
 import {
     getProductos,
     createProducto,
     getProductoById,
     updateProducto,
     deleteProducto,
+    generarFactura, 
 } from "./productos.controller.js";
-import{
+import {
     existenteProductoById,
 } from "../helpers/db-validators.js";
 import { validarCampos } from "../middlewares/validar-campos.js";
@@ -19,7 +20,7 @@ router.get("/", getProductos);
 router.get(
     "/:id",
     [
-        check("id", "No es un ID valido").isMongoId(),
+        check("id", "No es un ID válido").isMongoId(),
         check("id").custom(existenteProductoById),
         validarCampos,
     ],
@@ -29,10 +30,10 @@ router.get(
 router.post(
     "/",
     [
-      check("nombre", "El nombre es obligatorio").not().isEmpty(),
-      check("descripcion", "La descripcion es obligatoria").not().isEmpty(),
-      check("stock", "El stock es obligatorio").not().isEmpty(),
-      validarCampos,
+        check("nombre", "El nombre es obligatorio").not().isEmpty(),
+        check("descripcion", "La descripción es obligatoria").not().isEmpty(),
+        check("stock", "El stock es obligatorio").not().isEmpty(),
+        validarCampos,
     ],
     createProducto,
 );
@@ -40,7 +41,7 @@ router.post(
 router.put(
     "/:id",
     [
-        check("id", "No es un ID valido").isMongoId(),
+        check("id", "No es un ID válido").isMongoId(),
         check("id").custom(existenteProductoById),
         validarCampos,
     ],
@@ -50,11 +51,19 @@ router.put(
 router.delete(
     "/:id",
     [
-        check("id", "No es un ID valido").isMongoId(),
+        check("id", "No es un ID válido").isMongoId(),
         check("id").custom(existenteProductoById),
         validarCampos,
     ],
     deleteProducto
+);
+
+router.post(
+    "/generar-factura",
+    [
+        validarCampos,
+    ],
+    generarFactura
 );
 
 export default router;

@@ -7,15 +7,16 @@ const ProductoSchema = mongoose.Schema({
     },
     descripcion: {
         type: String,
-        required: [true, "La descripcion es obligatoria"]
+        required: [true, "La descripción es obligatoria"]
     },
     stock: {
         type: String,
         required: [true, "Se necesita saber el stock"]
     },
     categoria: {
-        type: String, 
-        default: true,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Categoria',  
+        required: [true, "Se necesita especificar la categoría"]
     },
     estado: {
         type: Boolean,
