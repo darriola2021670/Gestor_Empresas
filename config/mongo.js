@@ -1,6 +1,5 @@
-'use strict';
-
 import mongoose from 'mongoose';
+import Role from '../src/role/role.model.js';
 
 export const dbConnection = async () => {
     try {
@@ -26,8 +25,10 @@ export const dbConnection = async () => {
 
         await mongoose.connect(process.env.URI_MONGO, {
             serverSelectionTimeoutMS: 5000,
-            maxPoolSize: 50
+            maxPoolSize: 50,
         });
+
+        await Role.initRoles();
     } catch (error) {
         console.log('Database connection failed', error);
     }

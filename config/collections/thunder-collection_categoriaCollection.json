@@ -1,0 +1,43 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "categoriaCollection",
+    "dateExported": "2024-03-08T06:28:58.188Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "fa31bca8-8d71-41c6-9d26-a464a8e8906d",
+            "colId": "dbfd16ec-b1a4-4eaf-ad2c-0f08e5d5d6eb",
+            "containerId": "",
+            "name": "addCategoria",
+            "url": "http://localhost:8080/empresa/v1/categoria",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-03-08T05:29:39.921Z",
+            "modified": "2024-03-08T06:28:00.307Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\":\"carne\",\n  \"descripcion\":\"aww\"\n}",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "021c50ee-9f6e-4578-863e-13af76341947",
+            "colId": "dbfd16ec-b1a4-4eaf-ad2c-0f08e5d5d6eb",
+            "containerId": "",
+            "name": "getCategorias",
+            "url": "http://localhost:8080/empresa/v1/categoria",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-03-08T05:52:49.823Z",
+            "modified": "2024-03-08T05:52:54.778Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

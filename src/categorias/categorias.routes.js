@@ -1,27 +1,44 @@
+// categoria.routes.js
 import { Router } from "express";
 import { check } from "express-validator";
-import { deleteCategoria, getCategorias, saveCategoria, searchCategoria } from "./categoria.controller.js";
+import {
+    deleteCategoria,
+    getCategorias,
+    saveCategoria,
+    updateCategoria,
+} from "./categoria.controller.js";
 import { validarCampos } from "../middlewares/validar-campos.js";
-import { validarJWT } from "../middlewares/validar-jwt.js";
 
 const router = Router();
 
-router.post('/',
+router.post(
+    "/",
     [
-        validarJWT,
-        check('id', 'Esta id es incorrecta').not().isEmpty(),
-        validarCampos
-    ], saveCategoria);
+        check("nombre", "El nombre es obligatorio").not().isEmpty(),
+        check("descripcion", "La descripción es obligatoria").not().isEmpty(),
+        validarCampos,
+    ],
+    saveCategoria
+);
 
-router.get('/', getCategorias);
+router.get("/", getCategorias);
 
 router.get(
-    '/:id',
-    [
-        validarJWT,
-        validarCampos
-    ], searchCategoria);
+    "/:id",
+    [validarCampos],
+    getCategorias
+);
 
-router.delete('/:id', [validarJWT, validarCampos], deleteCategoria);
+router.put(
+    "/:id",
+    [
+        check("nombre", "El nombre es obligatorio").not().isEmpty(),
+        check("descripcion", "La descripción es obligatoria").not().isEmpty(),
+        validarCampos,
+    ],
+    updateCategoria
+);
+
+router.delete("/:id", [validarCampos], deleteCategoria);
 
 export default router;
